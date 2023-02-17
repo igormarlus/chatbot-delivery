@@ -7,9 +7,8 @@ const app = express();
 
 
 var mercadopago = require('mercadopago');
-//mercadopago.configurations.setAccessToken(config.access_token);
-// TEST-7bc1e82a-cb62-4dea-b394-de2a656f5fba
-mercadopago.configurations.setAccessToken("TEST-7bc1e82a-cb62-4dea-b394-de2a656f5fba");
+
+mercadopago.configurations.setAccessToken("TEST-7bc1e82a-cb62-4dea-b394-***********");
 
 // JQUERY
 // Importing the jsdom module
@@ -65,7 +64,7 @@ async function start(){
     var id_cliente = 1; 
     let client = await superchats.create({
     session: "wcommerce",
-    license: "QKQ0ZDOOGO-XLQQJKW82M-LJSAHROR3Q-MQ4M107WUN",
+    license: "XXXXX",
     nodata: true,
     welcomeScreen: true, // Show or hide welcome in terminal
     retries: 3, // Number of connection attempts,
@@ -697,20 +696,6 @@ async function start(){
 
                                         })
 
-
-                                        
-
-                                    /*
-                                    }else{
-                                        client.sendText(message.from, '👷- Pedimos desculpas por não poder atender, mas pedimos sua ajuda para melhorarmos ainda mais nosso catálogo de serviços.');
-
-                                    }
-                                    */
-                                
-
-
-
-
                                 }
 
 
@@ -799,14 +784,7 @@ async function start(){
 
                             })
 
-
-
-                            //var id = grupos.groups[h].id;
-                            //var nome = grupos.groups[h].name;
-                            //var total_participants = grupos.groups[h].total_participants; 
-                            //var participants = grupos.groups[h].participants;
-                        }
-                        
+                        }                       
 
 
                 })
@@ -821,13 +799,6 @@ async function start(){
                 })
             }
 
-            /*
-            Olá! sou a Binha assistente virtual em IA ( inteligência artificial ). 
-
-            Para facilitar seu atendimento diga EXATAMENTE as palavras indicadas.
-
-            Para dar início a seu pedido escreva a palavra:  Menu.
-            */
            // PRIMEIRO CONTATO
             if(nivel_int == 0 && (message.content != "menu" && message.content != "Menu" ) && (message.isgroup === false) ){
                 client.getPicture(message.from)
@@ -910,70 +881,11 @@ async function start(){
                     var participants = grupos.groups[h].participants;
                     //jquery.post("https://chatbot-whatsapp-br.com.br/zap/set_grupos" ,  grupos.groups[h]  , function(call){
                     jquery.post("https://chatbot-whatsapp-br.com.br/zap/set_grupos" , { 'id_grupo' : id, 'nome'  : nome, 'total_participants' : total_participants }, function(call){
-                        //console.log(call);
-                        /*
-                        jquery.post("https://chatbot-whatsapp-br.com.br/zap/set_whats_grupos" ,participants, function(call2){
-                            console.log(participants);
-                            console.log(call2);
-                        })
-                        */
-
-                        //let parts = client.infoGroup(id);
-                        /*
-                        jquery.post("https://chatbot-whatsapp-br.com.br/zap/set_whats_grupos/"+id , { parts}, function(call2){
-                            console.log("-------------------------*-*-*-*-*-*-*");
-                            console.log(call2);
-                        });
-                        */
-                        
-
-                        // participantes
-                        
-                        //let parts = client.infoGroup(id);
-                        /*
-                        console.log(participants.length+"  qtd Participantes");
-                        for(var p=0; p<participants.length; p++){
-                            var whats = participants[p].id;
-                            var admin = participants[p].admin;
-
-                            console.log(" - Participantes: "+whats);
-                            
-                            jquery.post("https://chatbot-whatsapp-br.com.br/zap/set_whats_grupos" , { 'id_grupo' : id, 'whats'  : whats, 'admin' : admin }, function(call2){
-                                console.log(call2);
-                            });
-                            
-                            
-
-                            //console.log(parts[p]);
-
-                        } 
-                        */
-
-                        /*jquery.post("https://chatbot-whatsapp-br.com.br/zap/set_whats_grupos" , { 'id_grupo' : id, 'whats'  : whats, 'admin' : admin }, function(call2){
-                                console.log(call2);
-                            });*/
+                       
 
 
                     }); // x xxxxxxxxxxxxxxxxxxxx POST
-                // if($dds['id'] == ""){
-                        //console.log(id+" -  -- --  -- -  "+nome);
-                // }
-                    
-                // console.log(parts);
-                }
-
-                /*
-                jquery.getJSON(grupos, function(json) {
-                    jquery.each(json, function() {
-                        let info = this['id'];
-                        console.log("Tem ------> "+info);
-                        //$('#boxTeste').append(info);
-                    });
-                });/*GetJson end*/ 
-            
-
-
-                //client.sendText(message.from, grupos);
+                
             }
 
             if(message.content === "participantes"){
@@ -1038,21 +950,7 @@ async function start(){
 
                                             });
 
-                                            ///////////////////////////////
-                                            
-                                            /*
-                                            const menu2 = [{title: 'Castanha',rows:[{ title: 'Castanha Com Sal', rowId: '1' },{ title: 'Castanha Sem Sal', rowId: '1' },{ title: 'Castanha Brejeira', rowId: '1' },{ title: 'Castanha Mix Passas', rowId: '1' },{ title: 'Castanha Com Sal', rowId: '1' },{ title: 'Castanha Sem Sal', rowId: '1' },{ title: 'Castanha Brejeira', rowId: '1' },{ title: 'Castanha Caramelizada', rowId: '1' },{ title: 'Castanha Mix Passas', rowId: '1' },{ title: 'Castanha Pará', rowId: '1' },{ title: 'Castanha Com Sal', rowId: '1' },{ title: 'Castanha Sem Sal ', rowId: '1' },{ title: 'Castanha Brejeira', rowId: '1' },{ title: 'Castanha Mix Passas', rowId: '1' },{ title: 'Matéria prima castanha brejeira', rowId: '1' },{ title: 'Matéria prima castanha banda crua', rowId: '1' },{ title: 'Creme de Alho Com Bacon', rowId: '1' },],},{title: 'Tempero',rows:[{ title: 'Açafrão da terra', rowId: '2' },{ title: 'Alecrim', rowId: '2' },{ title: 'Alho Frito', rowId: '2' },{ title: 'Baiano', rowId: '2' },{ title: 'Bicarbonato', rowId: '2' },{ title: 'Canela em Pó', rowId: '2' },{ title: 'Chimichurri com pimenta', rowId: '2' },{ title: 'Chimichurri sem pimenta', rowId: '2' },{ title: 'Curry', rowId: '2' },{ title: 'Ervas Finas', rowId: '2' },{ title: 'Gengibre moído ', rowId: '2' },{ title: 'Lemon peper', rowId: '2' },{ title: 'Mix Cebola s.a', rowId: '2' },{ title: 'Noz moscada', rowId: '2' },{ title: 'Orégano ', rowId: '2' },{ title: 'Páprica doce', rowId: '2' },{ title: 'Páprica picante', rowId: '2' },{ title: 'Pimenta calabresa', rowId: '2' },{ title: 'Pimenta preta', rowId: '2' },{ title: 'Sal rosa fino', rowId: '2' },],},{title: 'Amendoim',rows:[{ title: 'Dom Mix', rowId: '3' },{ title: 'Amendoin Japonês Cebola e Salsa', rowId: '3' },{ title: 'Amendoin Japonês Churrasco', rowId: '3' },{ title: 'Amendoin Japonês Pimenta', rowId: '3' },{ title: 'Amendoin Japonês Tradicional', rowId: '3' },{ title: 'Amendoin Torrado Com Casca', rowId: '3' },{ title: 'Amendoin Sem Pele Com Sal', rowId: '3' },{ title: 'Amendoin Sem Pele Sem Sal', rowId: '3' },{ title: 'Amendoin Sem Pele Com Sal', rowId: '3' },{ title: 'Amendoin Sem Pele Sem Sal', rowId: '3' },{ title: 'Amendoin Sem Pele CRU', rowId: '3' },{ title: 'Matéria prima amendoin com sal', rowId: '3' },{ title: 'Matéria prima amendoin sem sal', rowId: '3' },],},{title: 'Outros',rows:[{ title: 'Sal Himalaia ', rowId: '4' },{ title: 'Creme de Alho Tradicional ', rowId: '4' },{ title: 'Creme de Alho Com Queijo', rowId: '4' },{ title: 'Alho triturado', rowId: '4' },{ title: 'Alho triturado ', rowId: '4' },{ title: 'Alho triturado', rowId: '4' },],},];
-            
-                                            client.sendList(
-                                                //let response = await const response = await client.sendList(
-                                                message.from,
-                                                "Escolha o produto",
-                                                menu2,
-                                                "Cardápio",
-                                                "", //Description opcional
-                                                "Clique no botão abaixo para ver o cardápio \n Para remover algum item digite *remover* \n Para voltar ao cardápio digite *menu*"
-                                            );
-                                            */
+                      
                                         });
                                     
 
@@ -1722,31 +1620,7 @@ async function start(){
 
                         }
 
-                        /*
-                        if(nivel_n == 58){
-                            console.log("Digitou seu complmento");
-                            client.sendText(message.from, "OK! Obrigado por enviar as informações necessárias. ");
-
-                            
-                            const sections2 = [{title: 'Forma de pagamento',rows:[{ title: 'Dinheiro', rowId: '' },{ title: 'PIX', rowId: '' },{ title: 'Cartão débito/crédito', rowId: '' },{ title: 'Link de pagamento', rowId: '' },],},];
                     
-           
-    
-    
-                                let response =  client.sendList(
-                                    message.from,
-                                    "Forma de pagamento",
-                                    sections2,
-                                    "Selecione a forma de pagamento",
-                                    "Dinheiro, PIX, Cartão...",
-                                    "selecione abaixo"
-                                );
-    
-                                console.log(response);
-
-                        }
-                        */
-
                     })
 
                 }
@@ -2133,22 +2007,7 @@ async function start(){
                                                 var o = [];
                                                 var c = 0;
                         
-                                                /*
-                                                for(var h=0; h<obj.length; h++){
-                                                    console.log(obj);
-                                                    c = h+1;
-                                                    var add =  {buttonId: obj[h].id, buttonText: {displayText: obj[h].nome}, type: 1};
-                                                    buttonsC.push(add);
-                                                } // x for
-
-                                                client.sendButtons(message.from, "Adicionar mais itens no carrinho?", buttonsC, 'Acrescente mais produtos ao seu pedido:')
-                                                .then((result) => {
-                            
-                                                    //console.log(result.title+" +++ ++ + ++ ");
-                                                    console.log(result);
-                                                });
-                                                console.log(buttonsC);                   
-                                                */
+                                             
                                                 // $##############  LISTA
                                                 for(var h=0; h<obj.length; h++){
                                                     console.log(obj);
@@ -2211,17 +2070,6 @@ async function start(){
 
     }); // x 1º POST
 
-        
-        
-
-        
-
-        
-
-
-
-
-
     } // xxxxxxxxxxxxxxxxxxx tudo
 
     })
@@ -2235,10 +2083,6 @@ async function start(){
   let client = await start();
     //let response = await client.sendText('0000000000000', 'Thanks for using Superchats!!!')
     //console.log(response)
-
- 
-
-
 })(
 
 )
